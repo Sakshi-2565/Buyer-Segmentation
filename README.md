@@ -1,117 +1,90 @@
-# Buyer-Segmentation
-
-# Premium Machine Learning Real Estate Buyer Segmentation & Market Intelligence Platform
-
-Welcome to this end-to-end, high-end business intelligence platform designed to resemble professional Tableau and PowerBI analytics suites. This platform utilizes Unsupervised Machine Learning (K-Means & Hierarchical Agglomerative Clustering) to segment real estate buyer portfolios into 4 actionable investor personas, accompanied by **30 advanced interactive visualizations**.
-
+# 🏢 Real Estate Buyer Intelligence & Segmentation Platform
+An institutional-grade **Unsupervised Machine Learning & Behavioral Intelligence Dashboard** built with Python, Streamlit, Scikit-Learn, and Plotly. This platform aggregates real estate client transaction records and property portfolios to uncover high-value buyer personas, geographic market concentration, investment behavior, and financial leverage trends.
 ---
-
-## 🏢 Platform Overview
-Understanding buyer demographics, behavioral indicators, and sentiment preferences is vital to optimize corporate real estate decisions. This platform provides real estate developers, investors, and marketers with:
-- **Executive Decision KPIs**: High-end metric cards calculating Total Capital Spend, Mean Spend, Survey Satisfactions, and mortgage loan leverage rates.
-- **Advanced Sidebar Filter Board**: Slice all dashboard views dynamically by Country, Region, Client Type, Gender, Purpose, Loan applied, and Satisfaction range.
-- **Interactive Visual Lab**: A playground loaded with **30 comprehensive charts** (including 3D PCA, Sankey Flows, Radar, Sunburst, Treemap, and parallel coordinate graphs).
-- **AI Automated Insights Engine**: Dynamic natural language audits mapping cohorts to corporate investment recommendations, hidden trends, and behavioral anomalies.
-
+## 🌟 Key Features & Dashboard Consoles
+The platform features 6 analytical consoles accessible via an interactive sidebar:
+### 1. 📈 Executive Overview
+* **Profitability & Decision Intelligence KPIs**: Total Capital Volume, Mean Allocation, and Units Sold.
+* **Buyer Cohort Summary**: Dynamic distribution across AI-identified buyer clusters.
+* **Market Treemap**: Hierarchical visualization (`Country` → `Region` → `Client Type`).
+### 2. 🏢 Buyer Segmentation Analytics Lab
+* **PCA Dimensionality Reduction**: Interactive 2D and 3D Principal Component projection spaces.
+* **Hierarchical Dendrogram**: Agglomerative clustering visualization using Ward distance metric.
+* **Model Diagnostics**: Elbow method (Inertia curve) and Silhouette Coefficient evaluation for optimal $K$ selection.
+### 3. 📊 Investment Behaviour Intelligence
+* **Financing & Leverage**: Mortgage loan application rates broken down by buyer clusters.
+* **Acquisition Motivations**: Ratio of yield-seeking investment property purchases vs. primary residential acquisitions.
+* **Referral Channel Conversion**: Multi-channel analysis (Website, Broker Agency, Direct Referrals).
+### 4. 🌍 Geographic Market Intelligence
+* **Territory Heatmaps**: Country-wise buyer concentration and regional hotspot density maps.
+* **Demographic Sunburst**: Concentric hierarchical flow maps (`Country` → `Client Type` → `Acquisition Purpose`).
+### 5. 🔬 Advanced Visual Analytics Playground
+Explore a catalog of 29+ interactive charts, including:
+* **Sankey Flow Diagrams**: Channel $\to$ Client Type $\to$ Cluster mapping.
+* **Polar Radar Charts**: Multi-dimensional behavioral profile signatures.
+* **Parallel Coordinates Plot**: Scaled feature distribution comparison.
+* **Violin & Boxplots**: Age and satisfaction score distribution across cohorts.
+* **Scatter Matrices**: Multi-feature correlation grids.
+### 6. 💡 AI Insight Recommendation Center
+* **Automated Natural Language Findings**: Statistical key findings, market sentiment summaries, and hidden trends.
+* **Risk & Anomaly Detection**: Identification of dissatisfied buyer segments and unusual corporate debt leverage.
+* **Strategic Growth Recommendations**: Actionable advice for digital channels and institutional portfolio structures.
+* **Corporate Target Strategy & Persona Mapping**: Automated centroid persona cards with core buyer characteristics.
 ---
-
-## 📂 Project Structure
+## 🏗️ Project Architecture & File Structure
 ```
-c:\Users\Lenovo\OneDrive\Desktop\Segment\
+Segmentation/
 │
-├── data/
-│   └── buyers_dataset.csv             # Cleaned and enriched buyers dataset used for ML
-│
-├── notebooks/
-│   └── buyer_segmentation.ipynb       # Explanatory Jupyter Notebook with 20+ diagnostics
+├── stream.py                  # Main Streamlit web application & UI navigation layout
+├── visualization.py           # Plotly, Seaborn, & Matplotlib interactive chart engine
+├── insights.py                # Natural Language Automated Business Insights & Anomaly Detector
+├── dashboard_utils.py         # Custom CSS injector & sleek KPI card components
+├── Feature_Engineering.py     # Encoding, StandardScaler, One-Hot Encoding, & PCA pipeline
+├── Models.py                  # K-Means, Agglomerative Clustering, Silhouette & Elbow evaluation
+├── preprocessing.py           # Raw dataset loader, cleaning, property aggregation, & merger
 │
 ├── assets/
-│   └── css_styles.css                 # Premium custom modern dark theme stylesheet (Glassmorphism)
+│   └── css_styles.css         # Dark-mode BI styling and glassmorphism UI theme
 │
-├── src/
-│   ├── preprocessing.py               # Preprocessing pipelines (cleaning, scaling, encoding)
-│   ├── clustering.py                  # Clustering models (K-Means, Agglomerative, linkage matrix)
-│   ├── visualization.py               # Visual analytics library hosting all 30 plotting scripts
-│   ├── insights.py                    # Automated Business Insights & Recommendations Engine
-│   └── dashboard_utils.py             # Shared KPI calculators & CSS injectors
-│
-├── app.py                             # Premium Streamlit multi-page BI dashboard
-├── requirements.txt                   # Platform library dependencies
-└── README.md                          # Platform documentation (this file!)
+└── data/
+    ├── raw/                   # Raw source CSV files (clients.csv, properties.csv)
+    └── buyers_dataset.csv     # Merged and processed dataset output
 ```
-
 ---
-
-## ⚙️ Installation & Run Commands
-Setting up and running the dashboard is extremely simple:
-
-### 1. Install Dependencies
-Open your terminal in the project root directory and install requirements:
+## 🛠️ Technology Stack
+* **Core & UI Framework**: Python 3.9+, [Streamlit](https://streamlit.io/)
+* **Data Processing & Analytics**: Pandas, NumPy
+* **Machine Learning**: Scikit-Learn (K-Means, Agglomerative Clustering, PCA, DecisionTrees, StandardScaler)
+* **Visualization Engines**: Plotly Express, Plotly Graph Objects, Seaborn, Matplotlib, SciPy (Hierarchical Linkage)
+---
+## 🚀 Getting Started
+### 1. Prerequisites
+Ensure you have Python 3.9 or higher installed.
+### 2. Installation
+Clone the repository and install the required dependencies:
 ```bash
-pip install -r requirements.txt
+pip install streamlit pandas numpy scikit-learn plotly matplotlib seaborn scipy
 ```
-
-### 2. Generate/Process Consolidated Dataset
-Verify that `data/buyers_dataset.csv` exists or regenerate it by executing:
+### 3. Data Preprocessing Pipeline
+Place your raw source files (`clients.csv` and `properties.csv`) under `data/raw/`. Run the preprocessing script to clean and merge the datasets:
 ```bash
-python -c "import sys; sys.path.append('src'); from utils import load_and_preprocess_raw_data; load_and_preprocess_raw_data()"
+python preprocessing.py
 ```
-
-### 3. Launch the Streamlit Console
-To experience the premium dark-themed BI dashboard, launch Streamlit:
+### 4. Launching the Platform
+Start the Streamlit web dashboard locally:
 ```bash
-streamlit run app.py
+streamlit run stream.py
 ```
-*(If streamlit isn't globally mapped, use: `python -m streamlit run app.py`)*
-
+The application will open automatically in your browser at `http://localhost:8501`.
 ---
-
-## 📈 Multi-Page Intelligence Consoles
-
-The application features **6 professional pages**:
-
-### 1. Executive Overview
-- Displays glowing high-value metrics (Total Buyers, Avg Age, Avg Satisfaction, Avg Portfolio Spend, Loan rate).
-- Auto-generated summary of top dynamic findings.
-- Global treemap showing nesting relationships (Country → Region → Client Type).
-
-### 2. Buyer Segmentation Analytics
-- Dynamic **PCA 2D Cluster Scatter Plot** & **PCA 3D Interactive Space Plot** allowing rotation and interactive exploration.
-- Hierarchical linkages visual tree (**Agglomerative Dendrogram**).
-- Diagnostic dashboard showcasing the **Elbow Method Curve** (Inertia) and **Silhouette Score Coefficients**.
-
-### 3. Investment Behaviour Intelligence
-- Analysis of mortgage loan dependencies across groups.
-- Referral channel effectiveness vs. buyer motivations (Sankey and Stacked counts).
-- Age group transaction behavior trends.
-
-### 4. Geographic Market Intelligence
-- Horizontal country concentrations and regional buyer hotspots.
-- Global Sunburst mapping distributions.
-
-### 5. Advanced Visual Analytics Lab
-An interactive playground hosting a complete catalog of **all 30 visualizations**! Select any chart from the dropdown to render it dynamically with explanations.
-
-### 6. AI Insight Recommendation Center
-- **Key Findings**: Automatic summaries based on active data percentages.
-- **Anomalies**: Tracking dissatisfied buyers or abnormal corporate loan structures.
-- **Strategic Observations**: Bulleted strategic recommendations for property developers.
-- **Persona Mapping**: Clear summaries of the 4 dynamic personas (Corporate Buyers, First-Time Buyers, Luxury Investors, Global Investors).
-
----
-
-## 🔬 Core Machine Learning Workflow
-
-### 1. Data Prep (`src/preprocessing.py`)
-- Removes duplicates, parses dates, and computes ages.
-- Performs **One-Hot Encoding** on categorical features (is_corporate, is_investment, loan_applied).
-- Normalizes columns using **StandardScaler** to place all coordinates on an equal scale (Mean = 0, Std Dev = 1).
-
-### 2. Unsupervised Grouping (`src/clustering.py`)
-- We test multiple candidates for $K$ and plot elbow curves and silhouette ratios.
-- **K=4** represents the mathematically optimal cluster count for client segmentation.
-- We execute both **K-Means** (centroid-focused) and **Hierarchical Agglomerative Clustering** (Ward linkage tree) using 4 clusters.
-
----
-
-Enjoy exploring this premium data intelligence console! Open `notebooks/buyer_segmentation.ipynb` to review the math, or run `streamlit run app.py` to start interacting with the charts!
+## 💡 Machine Learning Pipeline Overview
+1. **Preprocessing & Feature Engineering**:
+   - Cleans currency values, handles missing values, calculates buyer age from date of birth.
+   - Aggregates property listing data per buyer (property count, average spend, floor area, property types).
+   - Encodes binary features (Label Encoding) and multi-class categories (One-Hot Encoding).
+   - Standardizes numerical variables using `StandardScaler`.
+   - Compresses high-cardinality features using **Principal Component Analysis (PCA)** preserving 95% variance.
+2. **Clustering & Segmentation**:
+   - Fits **K-Means Clustering** ($K=4$) based on Elbow and Silhouette diagnostic metrics.
+   - Evaluates sub-cohort dendrograms via **Agglomerative Hierarchical Clustering**.
+# Buyer-Segmentation
