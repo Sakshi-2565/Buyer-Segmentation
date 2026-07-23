@@ -1,0 +1,152 @@
+/* Premium Modern Dark-Theme BI Layout Dashboard Styles */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap');
+
+/* Basic App Body Override */
+.stApp {
+    background-color: #0b0f19 !important;
+    color: #f8fafc !important;
+    font-family: 'Outfit', 'Inter', sans-serif !important;
+}
+
+/* Sidebar Custom Styling */
+section[data-testid="stSidebar"] {
+    background-color: #0f172a !important;
+    border-right: 1px solid rgba(255, 255, 255, 0.08) !important;
+    color: #e2e8f0 !important;
+}
+
+/* Glassmorphism Dashboard Header */
+.dashboard-header {
+    background: linear-gradient(135deg, rgba(30, 41, 59, 0.9) 0%, rgba(15, 23, 42, 0.9) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(12px);
+    border-radius: 16px;
+    padding: 2.5rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+.dashboard-header h1 {
+    color: #38bdf8 !important;
+    font-size: 2.8rem !important;
+    font-weight: 800 !important;
+    margin: 0 !important;
+    letter-spacing: -0.025em;
+    text-shadow: 0 0 15px rgba(56, 189, 248, 0.2);
+}
+
+.dashboard-header p {
+    color: #94a3b8 !important;
+    font-size: 1.15rem !important;
+    margin-top: 0.75rem !important;
+    font-weight: 400;
+}
+
+/* Glassmorphism Cards */
+.bi-card {
+    background-color: rgba(30, 41, 59, 0.45) !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    backdrop-filter: blur(8px);
+    border-radius: 12px !important;
+    padding: 1.5rem !important;
+    margin-bottom: 1.25rem !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15) !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.bi-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(56, 189, 248, 0.4) !important;
+    box-shadow: 0 8px 30px rgba(56, 189, 248, 0.15) !important;
+}
+
+/* Glowing Metrics Styling */
+div[data-testid="stMetric"] {
+    background-color: rgba(15, 23, 42, 0.6) !important;
+    border: 1px solid rgba(255, 255, 255, 0.06) !important;
+    border-radius: 10px !important;
+    padding: 1rem 1.25rem !important;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2) !important;
+    transition: all 0.25s ease !important;
+}
+
+div[data-testid="stMetric"]:hover {
+    transform: translateY(-4px);
+    border-color: rgba(56, 189, 248, 0.25) !important;
+    box-shadow: 0 8px 30px rgba(56, 189, 248, 0.15) !important;
+}
+
+div[data-testid="stMetricLabel"] {
+    color: #94a3b8 !important;
+    font-size: 0.9rem !important;
+    font-weight: 500 !important;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+div[data-testid="stMetricValue"] {
+    color: #38bdf8 !important;
+    font-size: 2.2rem !important;
+    font-weight: 700 !important;
+    text-shadow: 0 0 10px rgba(56, 189, 248, 0.15);
+}
+
+/* Persona Insight Card */
+.persona-card {
+    background: linear-gradient(135deg, rgba(30, 41, 59, 0.7) 0%, rgba(15, 23, 42, 0.7) 100%);
+    border-left: 5px solid #38bdf8 !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    border-right: 1px solid rgba(255, 255, 255, 0.08);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.persona-header {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #38bdf8;
+    margin-bottom: 0.5rem;
+}
+
+.persona-desc {
+    font-style: italic;
+    color: #cbd5e1;
+    margin-bottom: 1rem;
+    font-size: 1.05rem;
+}
+
+/* Custom Dividers */
+hr {
+    border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Success, Alert, Warning glass panels */
+.alert-box {
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+}
+
+.alert-success {
+    background-color: rgba(16, 185, 129, 0.12) !important;
+    border: 1px solid rgba(16, 185, 129, 0.3) !important;
+    color: #a7f3d0 !important;
+}
+
+.alert-warning {
+    background-color: rgba(245, 158, 11, 0.12) !important;
+    border: 1px solid rgba(245, 158, 11, 0.3) !important;
+    color: #fde68a !important;
+}
+
+.alert-info {
+    background-color: rgba(56, 189, 248, 0.12) !important;
+    border: 1px solid rgba(56, 189, 248, 0.3) !important;
+    color: #bae6fd !important;
+}

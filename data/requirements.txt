@@ -1,0 +1,14 @@
+# Pre-processing
+pandas
+numpy
+scikit-learn
+scipy
+
+# Visualisation
+matplotlib
+seaborn
+plotly
+
+# Deploy
+streamlit
+
