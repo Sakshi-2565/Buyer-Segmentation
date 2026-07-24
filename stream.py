@@ -21,10 +21,10 @@ def get_compiled_pipeline_dataset():
 
     clean_df=processing_pipeline()
 
-    # dataset_path = 'data/buyers_dataset.csv'
-    # if not os.path.exists(dataset_path):
-    #     st.error(f"Processed dataset buyers_dataset.csv missing under 'data/' directory! Please ensure preprocessing script was run.")
-    #     return None, None, None, None    
+    dataset_path = 'data/buyers_dataset.csv'
+    if not os.path.exists(dataset_path):
+        st.error(f"Processed dataset buyers_dataset.csv missing under 'data/' directory! Please ensure preprocessing script was run.")
+        return None, None, None, None    
         
     pca_df, feature_cols = Encoding(clean_df)
 
