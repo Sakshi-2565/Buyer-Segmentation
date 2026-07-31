@@ -17,9 +17,14 @@ from preprocessing import processing_pipeline
 
 
 # @st.cache_data
-def get_compiled_pipeline_dataset():
+def get_compiled_pipeline_dataset(client_file=None, property_file=None):
 
-    clean_df=processing_pipeline()
+    if client_file is not None and property_file is not None:
+        client_file.seek(0)
+        property_file.seek(0)
+        clean_df = processing_pipeline(client_file, property_file)
+    else:
+        clean_df = processing_pipeline()
 
     dataset_path = 'data/buyers_dataset.csv'
     if not os.path.exists(dataset_path):
@@ -41,7 +46,18 @@ def get_compiled_pipeline_dataset():
 
 # Load CSS stylesheet and execute data pipeline cache loader
 load_css("assets/css_styles.css")
-clean_df, scaled_df, feature_cols, cluster_labels = get_compiled_pipeline_dataset()
+
+# --- Initialize Sidebar & File Upload ---
+st.sidebar.image("https://img.icons8.com/clouds/200/000000/real-estate.png", width=110)
+st.sidebar.markdown("<h3 style='color:#38bdf8;text-align:center;'>PLATFORM NAVIGATION</h3>", unsafe_allow_html=True)
+
+st.sidebar.markdown("---")
+st.sidebar.markdown("<h4 style='color:#38bdf8;'>📁 UPLOAD DATASETS</h4>", unsafe_allow_html=True)
+st.sidebar.write("Upload custom datasets or leave empty to use default datasets.")
+client_file = st.sidebar.file_uploader("Upload Client Dataset (CSV)", type=['csv'])
+property_file = st.sidebar.file_uploader("Upload Property Dataset (CSV)", type=['csv'])
+
+clean_df, scaled_df, feature_cols, cluster_labels = get_compiled_pipeline_dataset(client_file, property_file)
 
 
 # ----------------------------------------------------
@@ -58,9 +74,6 @@ if clean_df is not None:
     """, unsafe_allow_html=True)
     
     # Sidebar navigation panel
-    st.sidebar.image("https://img.icons8.com/clouds/200/000000/real-estate.png", width=110)
-    st.sidebar.markdown("<h3 style='color:#38bdf8;text-align:center;'>PLATFORM NAVIGATION</h3>", unsafe_allow_html=True)
-    
     page = st.sidebar.selectbox(
         "Select Analytics Console",
         [
