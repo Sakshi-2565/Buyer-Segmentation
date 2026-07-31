@@ -114,8 +114,8 @@ def merging_client_prop(clients,properties):
     return clean_df
 
 
-client_path=r'data\raw\clients.csv'
-properties_path=r'data\raw\properties.csv'
+client_path='data/raw/clients.csv'
+properties_path='data/raw/properties.csv'
 
 def processing_pipeline(client_path=client_path,properties_path=properties_path):
 
